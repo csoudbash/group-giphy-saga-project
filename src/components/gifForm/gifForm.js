@@ -10,19 +10,26 @@ export default function GifForm() {
     const dispatch = useDispatch();
 
     
-    // const handleInput = (event) => {
+    const handleSubmit = () => {
+        console.log('HIVE MIND');
 
-    // }; // end of handleInput
+    }; // end of handleInput
 
 
     return (
         <div id='gifForm'>
-            {/* <input 
+            <input 
             // onClick={handleInput}
-            value={gifInput}
+
 
             
-            /> */}
+            />
+
+            <button
+            onClick={handleSubmit}
+            >
+                HM HMMM HMMM HMMMMMM
+            </button>
 
                 
 
