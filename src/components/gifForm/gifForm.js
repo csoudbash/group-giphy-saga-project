@@ -1,6 +1,5 @@
 import React, {useState}from 'react';
-// import { useDispatch } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
 
 
 
@@ -9,10 +8,11 @@ export default function GifForm() {
 
     let [gifInput, setGifInput] = useState('');
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     
-    const handleInput = (event) => {
+    const handleSubmit = () => {
+        console.log('HIVE MIND');
 
     }; // end of handleInput
 
@@ -22,8 +22,15 @@ export default function GifForm() {
             <input 
 
 
+
             
             />
+
+            <button
+            onClick={handleSubmit}
+            >
+                HM HMMM HMMM HMMMMMM
+            </button>
 
                 
 

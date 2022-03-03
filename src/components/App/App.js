@@ -1,9 +1,8 @@
-import React from 'react';
-
+// import React from 'react';
 import Header from '../Header/Header.js';
-import GifForm from '../GifForm/GifForm.js';
-import GifList from '../GifList/GifList.jsx';
 
+import GifForm from '../GifForm/GifForm'
+import GifList from '../GifList/GifList';
 import {HashRouter as Router, Route, Link} from "react-router-dom";
 
 
@@ -22,7 +21,6 @@ function App(props) {
       </Route>
 
     </Router>
- 
 
   );
 }

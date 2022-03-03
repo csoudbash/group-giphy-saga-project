@@ -18,6 +18,10 @@ const gifList = (state = [], action) => {
 };    
 const sagaMiddleware = createSagaMiddleware();
 
+//rootSaga
+function* rootSaga(){
+    yield takeEvery('GET_GIFS', getGifs)
+}
 const storeInstance = createStore(
     combineReducers({
         gifList,
@@ -33,6 +37,7 @@ const storeInstance = createStore(
             const gifResponse = yield axios.get('/giphy');
             yield put({type: 'SET_GIFLIST', payload: gifResponse.data});
         } catch(error) {
+
             console.log('Error getting fruits', error);
         }
     }
@@ -41,6 +46,7 @@ const storeInstance = createStore(
     function* rootSaga(){
         yield takeEvery('GET_GIFS', getGifs)
     }
+
     
     sagaMiddleware.run(rootSaga);
 
