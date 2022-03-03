@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 
 
 
-
 export default function GifForm() {
 
     let [gifInput, setGifInput] = useState('');
@@ -20,7 +19,7 @@ export default function GifForm() {
     return (
         <div id='gifForm'>
             <input 
-
+            // onClick={handleInput}
 
 
             
