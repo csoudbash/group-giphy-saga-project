@@ -10,8 +10,10 @@ const router = express.Router();
 // return all favorite images
 
 // data-base
-router.get('/giphy')
-
+router.get('/giphy', (req, res) => {
+  // req.body should contain a category_id to add to this favorite image
+  res.sendStatus(200);
+});
 
 
 

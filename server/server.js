@@ -10,13 +10,15 @@ const PORT = process.env.PORT || 5000;
 
 // req.params value for input
 app.get('/giphy', (req, res) => {
-  axios.get(`https://api.giphy.com/v1/stickers/search?api_key=${process.env.GIPHY_API_KEY}&q=anime&rating=pg13`)
-      .then (response => res.send(response.data))
-      .catch(error => {
+  axios.get(`http://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=pokemon&rating=pg`)
+      .then((response) => {
+          res.send(response.data);
+      })
+      .catch((error) => {
+          console.log('error is', error);
           res.sendStatus(500);
-          console.log('error is...', error)})
-      ;
-});
+      })
+})
 
 // Route includes
 const favoriteRouter = require('./routes/favorite.router');

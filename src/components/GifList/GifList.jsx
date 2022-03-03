@@ -17,4 +17,4 @@ function GifList () {
     )
 }
 
-export default GifList
+export default GifList;
