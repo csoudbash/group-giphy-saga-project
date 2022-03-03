@@ -10,7 +10,7 @@ function App(props) {
         <gifForm />
         <gifList />
       </Route>
-      <Route path='/' exact>
+      <Route path='/favorites'>
         <Header />
         <gifForm />
         <gifList />
