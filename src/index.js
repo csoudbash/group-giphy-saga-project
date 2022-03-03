@@ -41,11 +41,6 @@ const storeInstance = createStore(
             console.log('Error getting fruits', error);
         }
     }
-    
-    //rootSaga
-    function* rootSaga(){
-        yield takeEvery('GET_GIFS', getGifs)
-    }
 
     
     sagaMiddleware.run(rootSaga);
