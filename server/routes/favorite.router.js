@@ -1,13 +1,23 @@
 const express = require('express');
 const pool = require('../modules/pool');
 
+// .env require
+require('dotenv').config();
+
 const router = express.Router();
 
+// view 2
 // return all favorite images
-router.get('/', (req, res) => {
-  res.sendStatus(200);
+app.get('/api/favorite', (req, res) => {
+  axios.get(`https://api.giphy.com/v1/stickers/search?api_key=${process.env.GIPHY_API_KEY}&q=$anime&rating=pg13`)
+      .then (response => res.send(response.data))
+      .catch(error => {
+          res.sendStatus(500);
+          console.log('error is...', error)})
+      ;
 });
 
+// view 1
 // add a new favorite
 router.post('/', (req, res) => {
   res.sendStatus(200);
