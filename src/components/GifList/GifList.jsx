@@ -12,7 +12,7 @@ function GifList () {
     console.log('gifList is', gifList);
     return(
         <div>
-            {gifList.map}
+
             
         </div>
     )
