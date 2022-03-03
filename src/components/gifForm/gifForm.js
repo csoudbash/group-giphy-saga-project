@@ -5,7 +5,7 @@ import React, {useState}from 'react';
 
 
 
-export default function gifForm() {
+export default function GifForm() {
 
     let [gifInput, setGifInput] = useState('');
 
@@ -20,8 +20,7 @@ export default function gifForm() {
     return (
         <div id='gifForm'>
             <input 
-            onClick={handleInput}
-            value={gifInput}
+
 
             
             />

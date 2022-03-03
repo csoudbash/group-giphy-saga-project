@@ -12,9 +12,10 @@ function GifList () {
     console.log('gifList is', gifList);
     return(
         <div>
+            {/* {gifList.map(gifImage)} */}
             
         </div>
     )
 }
 
-export default GifList
+export default GifList;
