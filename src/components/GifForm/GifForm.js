@@ -10,25 +10,21 @@ export default function GifForm() {
 
     const dispatch = useDispatch();
 
+    const addGif = () => {
+        dispatch({ type: 'ADD_GIFS', payload: {gif: newGif}});
+        setNewGif('');
+    }
 
 
 
-    // const handleGifChange = (event) => {
-    //     console.log('event happened');
-    //     //Similar to in redux -- we dont want to get rid of the id field when we update name
-    //     setNewGif({...newGif, name: event.target.value})
-    // }
-
-    // const addNewGif = event => {
-    //     event.preventDefault();
-    //     dispatch({ type: 'ADD_GIFS', payload: newGif });
-    //     //updates the next plant to have a new id
-    //     setNewGif({id:newGif.id + 1, name: ''});
-    // }
     return (
         <div>
             <h3>This is the form</h3>
-        
+            <input
+            value={newGif}
+            onChange={evt => setNewGif(evt.target.value)}
+            />
+            <button onClick={addGif}>Submit</button>
 
             {/* <form onSubmit={addNewGif}>
                 <input type='text' value={newGif.name} onChange={handleGifChange} />
