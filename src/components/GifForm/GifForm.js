@@ -8,39 +8,32 @@ import GifList from '../GifList/GifList';
 
 export default function GifForm() {
     // input for gif search
-    let [newGif, setNewGif] = useState('');
+    let [search, setSearch] = useState('');
     // displays the gif, will push into object 
-    // let [displayGifs, setDisplayGifs] = useState([]);
 
     const dispatch = useDispatch();
 
     
-    // const addGif = () => {
-    //     console.log('Hive MIND')
-    //     dispatch({ type: 'ADD_GIFS', payload: {gif: newGif}});
-    //     setNewGif('');
-    // }; // end of addGif
 
-    
     const addGif = () => {
-        // axios.get('/giphy')
-        // .then(response => setDisplayGifs(response.data.data))
-        //     // .then(response => setDisplayGifs(response.data.data))
-        //     .catch(error => console.log('error'))
+        
         console.log('Hive MIND')
-        dispatch({ type: 'GET_GIFS', payload: { gif: newGif } });
-        setNewGif('');
+        dispatch({ type: 'SET_SEARCH', payload: { search: search } });
+        setSearch('');
         // how to make newGif into a data???
-        console.log(newGif)
+        console.log(search);
     };
     
+
+
     return (
         <div>
             <h3>This is the form</h3>
             <input
-                value={newGif}
-                onChange={evt => setNewGif(evt.target.value)}
+                value={search}
+                onChange={evt => setSearch(evt.target.value)}
             />
+
             <button onClick={addGif}>Submit</button>
             {/* {
                 displayGifs.map((image, i) => (
