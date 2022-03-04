@@ -5,7 +5,7 @@ export default function* getGifs() {
 function* getGifs(){
     try {
         const gifResponse = yield axios.get('/giphy');
-        yield put({type: 'SET_GIFLIST', payload: gifResponse.data});
+        yield put({type: 'SET_GIFLIST', payload: gifResponse.data.data});
     } catch(error) {
         
         console.log('Error getting fruits', error);
