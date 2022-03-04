@@ -18,10 +18,31 @@ const router = express.Router();
 
 
 
-// view 1
+// view 2
 // add a new favorite
 router.post('/', (req, res) => {
-  res.sendStatus(200);
+  const newImage = req.body;
+  const queryText = `
+   INSERT INTO "favorites' ("url") VALUES ($1);`;
+
+  const queryValues =[newImage.url];
+
+  pool.query(queryText, queryValues)
+  .then (() => {res.sendStatus(200)})
+  .catch((error) => {
+    console.log('Error posting image', error);
+    res.sendStatus(418);
+  })
+});
+
+router.get('/', (req, res) => {
+  const queryText = 'SELECT * FROM "favorites";';
+  pool.query(queryText)
+  .then((result) => { res.send(result.rows)})
+  .catch((error) => {
+    console.log('Error getting images', error);
+    res.sendStatus(500);    
+  })
 });
 
 // update given favorite with a category id
