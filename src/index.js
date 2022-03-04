@@ -9,12 +9,14 @@ import {takeEvery, put} from 'redux-saga/effects';
 import {useState} from 'react';
 
 import getGifs from './saga/getGifs.saga';
+import postGifs from './saga/postGifs.saga';
 
 
 
 //rootSaga
 function* rootSaga(){
-    yield takeEvery('GET_GIFS', getGifs)
+    yield takeEvery('GET_GIFS', getGifs);
+    yield takeEvery('ADD_GIFS', postGifs);
 }
 
 const sagaMiddleware = createSagaMiddleware();
