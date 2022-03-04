@@ -10,7 +10,7 @@ function GifList({addGif}) {
     let [displayGifs, setDisplayGifs] = useState([]);
 
     // Makes our reduce avaiable in this component
-    const gifList = useSelector(store => store.gifList);
+    const gifListReducer = useSelector(store => store.gifListReducer);
 
     const dispatch = useDispatch();
 
@@ -21,26 +21,20 @@ function GifList({addGif}) {
     // in SQL do like a limit of 15?
     // how to get this get to respond when submit is pressed?
     const meep = () => {
+        axios.get('/giphy/:id', {params: {search: 'anime'} })
+            .then(response => setDisplayGifs(response.data.data))
+                // .then(response => setDisplayGifs(response.data.data))
+                .catch(error => console.log('error'))
+            console.log('Hive MIND');
     }
-    axios.get('/giphy')
-        .then(response => setDisplayGifs(response.data.data))
-            // .then(response => setDisplayGifs(response.data.data))
-            .catch(error => console.log('error'))
-        console.log('Hive MIND');
     
     
 
-
-
-
-
-
-    console.log('gifList is', gifList);
     return (
         <div>
             
             {
-                displayGifs?.map((image, i) => (
+                gifListReducer?.map((image, i) => (
                     <GifItem key={i} 
                     image={image}
                     />
@@ -53,3 +47,9 @@ function GifList({addGif}) {
 }
 
 export default GifList;
+
+
+
+
+
+

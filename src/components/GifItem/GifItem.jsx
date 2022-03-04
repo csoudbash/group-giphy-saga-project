@@ -10,7 +10,7 @@ export default function GifItem({ image }) {
     const postFav = (favGif) => {
         console.log('Ayyy');
         // dispatch to postGifs saga 
-        dispatch({type: 'ADD_GIFS', payload:{fav: favGif}}) //What's the payload??? single gifItem
+        dispatch({type: 'GET_GIFS', payload:{fav: favGif}}) //What's the payload??? single gifItem
     }
 
 return (

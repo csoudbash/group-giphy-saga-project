@@ -14,22 +14,30 @@ import postGifs from './saga/postGifs.saga';
 
 //rootSaga
 function* rootSaga(){
-    yield takeEvery('GET_GIFS', getGifs);
-    yield takeEvery('ADD_GIFS', postGifs);
+    yield takeEvery('SET_SEARCH', getGifs); // this is search
 }
 
 const sagaMiddleware = createSagaMiddleware();
 
-
-// gifList Reducer
-const gifList = (state = [], action) => {
+// search Reducer 
+const gifListReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_GIFLIST':
+        case 'FETCH_GIFLIST':
             return action.payload;
         default:
             return state;
     }
-};    
+};   
+
+// // list Reducer
+// const gifReducer = (state = [], action) => {
+//     switch (action.type) {
+//         case 'SET_GIFS':
+//             return action.payload;
+//         default:
+//             return state;
+//     }
+// };   
 
 
 
@@ -37,7 +45,7 @@ const gifList = (state = [], action) => {
 // store for Gifs
 const storeInstance = createStore(
     combineReducers({
-        gifList,
+        gifListReducer,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

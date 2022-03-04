@@ -22,8 +22,11 @@ const PORT = process.env.PORT || 5000;
 //       })
 // })
 
-app.get('/giphy', (req, res) => {
-  axios.get(`https://api.giphy.com/v1/stickers/search?api_key=${process.env.GIPHY_API_KEY}&q=anime&rating=pg13`)
+app.get('/giphy/:search', (req, res) => {
+
+  console.log('req is', req.params.search);
+
+  axios.get(`https://api.giphy.com/v1/stickers/search?api_key=${process.env.GIPHY_API_KEY}&q=${req.params.search}&rating=pg13`) // ${req.params.id}
       .then (response => res.send(response.data))
       .catch(error => {
           res.sendStatus(500);
