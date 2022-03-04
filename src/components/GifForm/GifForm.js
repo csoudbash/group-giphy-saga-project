@@ -1,20 +1,29 @@
 import React, {useState}from 'react';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 
 
 
 export default function GifForm() {
-
+    // input for gif search
     let [newGif, setNewGif] = useState('');
+    // displays the gif, will push into object 
+    let [displayGifs, setDisplayGifs] = useState([]);
 
     const dispatch = useDispatch();
 
+    // const addGif = () => {
+    //     console.log('Hive MIND')
+    //     dispatch({ type: 'ADD_GIFS', payload: {gif: newGif}});
+    //     setNewGif('');
+    // }; // end of addGif
+
     const addGif = () => {
-        console.log('Hive MIND')
-        dispatch({ type: 'ADD_GIFS', payload: {gif: newGif}});
-        setNewGif('');
-    }
+        axios.get('/giphy')
+        .then(response => setDisplayGifs(response.data.data))
+        .catch(error => console.log('error'))
+      }
 
     return (
         <div>
@@ -24,6 +33,11 @@ export default function GifForm() {
             onChange={evt => setNewGif(evt.target.value)}
             />
             <button onClick={addGif}>Submit</button>
+            {
+            displayGifs.map((image,i) => (
+              <img key={i}src={image.images.fixed_height.url} />
+            ))
+          }
 
             
         </div>
