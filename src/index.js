@@ -8,6 +8,19 @@ import logger from 'redux-logger';
 import {takeEvery, put} from 'redux-saga/effects';
 import {useState} from 'react';
 
+import getGifs from './saga/getGifs.saga';
+
+
+
+//rootSaga
+function* rootSaga(){
+    yield takeEvery('GET_GIFS', getGifs)
+}
+
+const sagaMiddleware = createSagaMiddleware();
+
+
+// gifList Reducer
 const gifList = (state = [], action) => {
     switch (action.type) {
         case 'SET_GIFLIST':
@@ -16,12 +29,8 @@ const gifList = (state = [], action) => {
             return state;
     }
 };    
-const sagaMiddleware = createSagaMiddleware();
 
-//rootSaga
-function* rootSaga(){
-    yield takeEvery('GET_GIFS', getGifs)
-}
+
 
 
 // store for Gifs
@@ -33,20 +42,7 @@ const storeInstance = createStore(
     applyMiddleware(sagaMiddleware, logger),
     );
 
-    
-    
-    //saga to get gifs from the API giphy and send it to the reducer
-    function* getGifs(){
-        try {
-            const gifResponse = yield axios.get('/giphy');
-            yield put({type: 'SET_GIFLIST', payload: gifResponse.data});
-        } catch(error) {
-
-            console.log('Error getting fruits', error);
-        }
-    }
-
-    // Runs Saga
+// Runs Saga
     sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
