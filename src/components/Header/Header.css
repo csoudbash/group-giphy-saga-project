@@ -1,0 +1,25 @@
+#header-name {
+  transform: rotate(-90deg);
+  color: white;
+  text-transform: uppercase;
+}
+.header {
+  background-color: rgba(155, 78, 228, 0.562);
+  height: 100%;
+  width: 200px;
+  text-shadow: 1px 1px 10px black;
+  margin: 0px auto;
+  transform: rotate(90deg);
+  animation: animate 5s linear infinite;
+  border-radius: 10px;
+}
+
+header {
+  background-color: red;
+}
+
+@keyframes animate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}

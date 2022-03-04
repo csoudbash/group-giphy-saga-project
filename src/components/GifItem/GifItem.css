@@ -1,0 +1,24 @@
+#gifItem {
+    background-color: rgba(147, 255, 6, 0.678);
+    border:5px solid white;
+    border-style:dotted;
+    float: left;
+    width: 18%;
+    padding: 5px;
+    margin: auto;
+    animation: animate 10s linear infinite;
+    border-radius: 10px;
+}
+
+.column {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+@keyframes animate {
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }

@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 import {takeEvery, put} from 'redux-saga/effects';
-import {useState} from 'react';
 
 import getGifs from './saga/getGifs.saga';
 import postGifs from './saga/postGifs.saga';
@@ -52,4 +51,5 @@ ReactDOM.render(
     <App />
 </Provider>
 , document.getElementById('root'));
+
 
