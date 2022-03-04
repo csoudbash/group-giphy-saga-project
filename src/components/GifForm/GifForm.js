@@ -11,8 +11,10 @@ export default function GifForm() {
     const dispatch = useDispatch();
 
     
-    const handleSubmit = () => {
+    const handleSubmit = (gif) => {
         console.log('HIVE MIND');
+        // dispatches gif to reducer 
+        dispatch({type: 'ADD_GIF', payload: {gif: gif}});
 
     }; // end of handleInput
 
@@ -20,17 +22,15 @@ export default function GifForm() {
     return (
         <div id='gifForm'>
             <input 
+            id='form-input'
+            // value={form-input}
 
 
 
             
             />
 
-            <button
-            onClick={handleSubmit}
-            >
-                HM HMMM HMMM HMMMMMM
-            </button>
+            <button onClick={(event) => handleSubmit('gif')}>Submit</button>
 
                 
 

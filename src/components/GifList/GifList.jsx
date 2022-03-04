@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
+import GifItem from '../GifItem/GifItem';
 
 function GifList () {
     const gifList = useSelector(store => store.gifList);
@@ -12,7 +13,13 @@ function GifList () {
     console.log('gifList is', gifList);
     return(
         <div>
-
+            <ul>
+        {gifList.map((gifImg) => {
+            return (
+                <GifItem key={gifImg.id} gifImg={gifImg} />
+            )
+        })}
+            </ul>
             
         </div>
     )

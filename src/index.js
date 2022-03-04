@@ -22,6 +22,9 @@ const sagaMiddleware = createSagaMiddleware();
 function* rootSaga(){
     yield takeEvery('GET_GIFS', getGifs)
 }
+
+
+// store for Gifs
 const storeInstance = createStore(
     combineReducers({
         gifList,
@@ -29,6 +32,7 @@ const storeInstance = createStore(
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
     );
+
     
     
     //saga to get gifs from the API giphy and send it to the reducer
@@ -42,7 +46,7 @@ const storeInstance = createStore(
         }
     }
 
-    
+    // Runs Saga
     sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
