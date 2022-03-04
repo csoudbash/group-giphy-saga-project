@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
   const queryValues =[newImage.url];
 
   pool.query(queryText, queryValues)
-  .then (() => {res.sendStatus(200);})
+  .then (() => {res.sendStatus(200)})
   .catch((error) => {
     console.log('Error posting image', error);
     res.sendStatus(418);
@@ -36,9 +36,9 @@ router.post('/', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-  const queryText = 'SELECT * FROM "favorites";'
+  const queryText = 'SELECT * FROM "favorites";';
   pool.query(queryText)
-  .then((result) => { res.send(result.rows);})
+  .then((result) => { res.send(result.rows)})
   .catch((error) => {
     console.log('Error getting images', error);
     res.sendStatus(500);    
