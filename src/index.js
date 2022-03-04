@@ -7,6 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 import {takeEvery, put} from 'redux-saga/effects';
 import {useState} from 'react';
+import axios from 'axios';
 
 const gifList = (state = [], action) => {
     switch (action.type) {
@@ -35,7 +36,7 @@ const storeInstance = createStore(
     function* getGifs(){
         try {
             const gifResponse = yield axios.get('/giphy');
-            yield put({type: 'SET_GIFLIST', payload: gifResponse.data});
+            yield put({type: 'SET_GIFLIST', payload: gifResponse.data.data});
         } catch(error) {
 
             console.log('Error getting fruits', error);
