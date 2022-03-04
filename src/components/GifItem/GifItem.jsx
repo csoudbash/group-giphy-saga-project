@@ -3,6 +3,11 @@
 
 
 export default function GifItem() {
+
+    
+
+
+
     <div id="GifItem">
         
     </div>

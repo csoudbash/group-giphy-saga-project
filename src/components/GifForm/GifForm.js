@@ -11,11 +11,10 @@ export default function GifForm() {
     const dispatch = useDispatch();
 
     const addGif = () => {
+        console.log('Hive MIND')
         dispatch({ type: 'ADD_GIFS', payload: {gif: newGif}});
         setNewGif('');
     }
-
-
 
     return (
         <div>
@@ -26,11 +25,7 @@ export default function GifForm() {
             />
             <button onClick={addGif}>Submit</button>
 
-            {/* <form onSubmit={addNewGif}>
-                <input type='text' value={newGif.name} onChange={handleGifChange} />
-                <input type='submit' value='Add New Gif' />
-            <pre>{JSON.stringify(newGif)}</pre>
-            </form> */}
+            
         </div>
     );
 }
@@ -47,35 +42,4 @@ export default function GifForm() {
 
 
     
-    // const handleSubmit = () => {
-    //     console.log('HIVE MIND');
-    //     // dispatches gif to reducer 
-    //     // dispatch({type: 'ADD_GIF', payload: {gif: gifName}});
-
-    // }; // end of handleInput
-
-
-    // return (
-    //     <div id='gifForm'>
-    //         <input 
-    //         id='form-input'
-           
-
-
-
-            
-    //         />
-
-    //         <button
-    //         onClick={handleSubmit}
-    //         >
-    //             SUBMIT
-    //         </button>
-
-                
-
-    //     </div>
-    // )
-
-
 
